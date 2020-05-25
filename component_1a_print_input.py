@@ -4,7 +4,7 @@ def return_input(question):
     while input_loop == "":
 
         user_input = input(question)
-        # does not allow for blanks when not asking for author
+        # does not allow for blanks
 
         if user_input.strip() == "":
             print("Enter something!!!")
@@ -17,10 +17,7 @@ def return_input(question):
 testing_loop = ""
 while testing_loop == "":
 
-    # condition of 0 shows that program isn't asking for author
     title = return_input("Please enter the title: ")
-
-    # condition of 1 shows that program is asking for author
     author = return_input("Please enter the author: ")
 
     print()

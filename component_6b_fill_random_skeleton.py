@@ -1,6 +1,24 @@
 
 import math
+import random
 import csv
+import random
+
+
+def return_title(question):
+
+    input_loop = ""
+    while input_loop == "":
+
+        user_input = input(question)
+
+        if user_input.strip() == "":
+            print("Enter something!!!")
+
+        # returns everything else
+
+        else:
+            return user_input
 
 
 def return_input(question):
@@ -47,7 +65,7 @@ csv_genres = csv.reader(genres)
 csv_adjectives = csv.reader(adjectives)
 
 # Asks for the rating of the book, recycled
-
+title = return_title("Please enter the title")
 rating = return_input("Please enter the rating: ")
 
 # Creates a dictionary that retains the order of the rows from spreadsheet by assigning numbers as the key to make
@@ -112,12 +130,31 @@ elif rating == 5:
 else:
     rating_adjectives = ["negative"]
 
-# Finds all adjectives that fit either all genre groups or fir the selected genre group that have either the
+# Finds all adjectives that fit either all genre groups or fit the selected genre group that have either the
 # positive, neutral, or negative tag based on the rating provided by the user
 
 for x in csv_adjectives:
     if x[1] == "0" or x[1] == genre_group:
         if x[0] in rating_adjectives:
-            adjective_list.append(x[2])
+            adjective_list.append(x)
 for x in adjective_list:
     print(x)
+adjective1 = random.choice(adjective_list)
+adjective2 = random.choice(adjective_list)
+if adjective1[0] != adjective2[0]:
+    conjunction = "but"
+else:
+    conjunction = "and"
+summary = input("summary?")
+if summary != "":
+    rng_number = random.randint(1, 2)
+
+    if rng_number == 1:
+        print("{} {} {}, {} is {}".format(adjective1[2], conjunction, adjective2[2], title, summary))
+    else:
+        setting = input("Where does the book take place?")
+        print("Set in {}, {} is the story of {}".format(setting, title, summary))
+
+else:
+    print("{} is both {} and {}".format(title, adjective1, adjective2))
+

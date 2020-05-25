@@ -21,7 +21,6 @@ def return_input(question):
 testing_loop = ""
 while testing_loop == "":
 
-    # condition of 0 shows that program isn't asking for author
     number = return_input("Please enter the rating: ")
     print("Rating: {}".format(number))
     print()

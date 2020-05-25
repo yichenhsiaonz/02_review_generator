@@ -2,6 +2,8 @@ import math
 
 
 def return_input(question):
+    rounding = ""
+    default = ""
 
     input_loop = ""
     while input_loop == "":
@@ -16,8 +18,7 @@ def return_input(question):
             elif user_input < 1:
                 return [1, ""]
             elif user_input % 1 != 0:
-                rounding_loop = ""
-                while rounding_loop == "":
+                while rounding == "":
                     rounding = input("Would you like to round up or down?: ")
                     if rounding == "up":
                         default = "Because it is worth more than a {}".format(math.floor(user_input))
@@ -31,7 +32,6 @@ def return_input(question):
                         print("Please enter \"up\" or \"down!!!\"")
             else:
                 return [user_input, ""]
-
 
             input_loop = 1
         except ValueError:
