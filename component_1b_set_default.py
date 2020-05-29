@@ -3,7 +3,7 @@ def return_input(question, condition):
     input_loop = ""
     while input_loop == "":
 
-        user_input = input(question)
+        user_input = input(question, condition)
 
         # returns anonymous if no author name entered
 

@@ -2,7 +2,29 @@
 import math
 import csv
 import random
-import re
+
+
+def return_title_author(question, condition):
+
+    input_loop = ""
+    while input_loop == "":
+
+        user_input = input(question)
+
+        # returns anonymous if no author name entered
+
+        if condition == 1 and user_input.strip() == "":
+            return "Anonymous"
+
+        # does not allow for blanks when not asking for author
+
+        elif user_input.strip() == "":
+            print("Enter something!!!")
+
+        # returns everything else
+
+        else:
+            return user_input
 
 
 def return_title(question):
